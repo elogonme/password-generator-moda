@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Scripts required to allow some Bootstrap components to work. -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+     
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+
+    <!-- Prompt Modal -->
+
+    <div class="modal fade" id="criteriaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">Enter Password criterias</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body" id="prompt-message"></div>
+            
+            <form class="needs-validation" novalidate>
+              <div class="form-row mx-2">
+                <div class="col-auto">
+                  <label class="" for="password-length"><b>Password length</b> (should not be less than 8 or more than 128)</label>
+                  <input type="number" class="form-control mb-2" placeholder="Password length" 
+                  id="password-length" min="8" max="128" value ="8" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="form-check">
+                  <div class="row justify-content-center">
+                    <div class="custom-control custom-checkbox">
+                      <input class="form-check-input" type="checkbox" value="" id="uppercase" name="select">
+                      <label class="form-check-label" for="uppercase">
+                        Uppercase
+                      </label>
+                    </div>
+                    
+                    <div class="custom-control custom-checkbox">
+                      <input class="form-check-input" type="checkbox" value="" id="lowercase" name="select">
+                      <label class="form-check-label" for="lowercase">
+                        Lowercase
+                      </label>
+                    </div>
+                    
+                    <div class="custom-control custom-checkbox">
+                      <input class="form-check-input" type="checkbox" value="" id="numbers" name="select">
+                      <label class="form-check-label" for="numbers">
+                        Numbers
+                      </label>
+                    </div>
+                  
+                    <div class="custom-control custom-checkbox">
+                      <input class="form-check-input" type="checkbox" value="" id="special" name="select">
+                      <label class="form-check-label " for="special">
+                        Special
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <div class="invalid-feedback text-center" id="error">
+                    Please select at least one type and correct password length
+                  </div>
+
+                </div>
+              </div>
+              
+              <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary mx-3" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary mx-3" id="submit-criterias">Submit</button>
+              </div> 
+              
+            </form>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <button id="generate" type="button" class="btn btn-danger" data-toggle="modal" data-target="#criteriaModal">Generate Password</button>
+        </div>
+      </div>
+    </div>
+ 
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
